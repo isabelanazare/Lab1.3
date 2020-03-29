@@ -31,12 +31,135 @@ public class TestAddStudent {
     @Test
     public void testAddStudentWithValidGroupNumber() throws ValidationException {
         Student student = new Student("20", "Diana", 935, "diana@gmail.com");
-        assertEquals(student,  this.service.addStudent(student));
+        this.service.addStudent(student);
+        assertEquals(student, this.service.findStudent("20"));
     }
 
     @Test
     public void testAddStudentWithInvalidGroupNumber() {
         Student student = new Student("1", "Diana", 3, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithValidEmail() throws ValidationException {
+        Student student = new Student("21", "Elena", 935, "elena@gmail.com");
+        this.service.addStudent(student);
+        assertEquals(student, this.service.findStudent("21"));
+    }
+
+    @Test
+    public void testAddStudentWithInvalidEmail() {
+        Student student = new Student("22", "Elena", 935, "elena");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithValidId() throws ValidationException {
+        Student student = new Student("23", "Elena", 935, "elena@gmail.com");
+        this.service.addStudent(student);
+        assertEquals(student, this.service.findStudent("23"));
+    }
+
+    @Test
+    public void testAddStudentWithInvalidId() {
+        Student student = new Student("nn2", "Elena", 935, "elena@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithValidName() throws ValidationException {
+        Student student = new Student("25", "elena", 935, "elena@gmail.com");
+        this.service.addStudent(student);
+        assertEquals(student, this.service.findStudent("25") );
+    }
+
+    @Test
+    public void testAddStudentWithInvalidName() {
+        Student student = new Student("26", "ele2na", 935, "elena@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithNullGroupNumber() throws ValidationException {
+        Student student = new Student("65", "Diana", 0, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithMAXINTGroupNumber() throws ValidationException {
+        Student student = new Student("30", "Diana", Integer.MAX_VALUE, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithNegativeGroupNumber() throws ValidationException {
+        Student student = new Student("-1", "Diana", 935, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithNullId() throws ValidationException {
+        Student student = new Student("0", "Diana", 935, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithNegativeId() throws ValidationException {
+        Student student = new Student("-1", "Diana", 935, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddStudentWithMAXINTId() throws ValidationException {
+        Student student = new Student(String.valueOf(Integer.MAX_VALUE), "Diana", 935, "diana@gmail.com");
+        try {
+            this.service.addStudent(student);
+        } catch (ValidationException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+
+    @Test
+    public void testAddStudentWithEmptyName() throws ValidationException {
+        Student student = new Student("63", "", 935, "diana@gmail.com");
         try {
             this.service.addStudent(student);
         } catch (ValidationException exception) {

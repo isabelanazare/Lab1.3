@@ -17,10 +17,19 @@ public class StudentValidator implements Validator<Student> {
         if(entity.getID() == null){
             throw new ValidationException("Id incorect!");
         }
-        if(entity.getNume() == ""){
+        if(entity.getID().equals("0")){
+            throw new ValidationException("Id incorect!");
+        }
+        if(!entity.getID().matches("(0|[1-9]\\d*)")){
+            throw new ValidationException("Id incorect!");
+        }
+        if(entity.getNume().equals("")){
             throw new ValidationException("Nume incorect!");
         }
-        if(entity.getGrupa() < 0) {
+        if(!entity.getNume().matches("^[\\p{L} .'-]+$")){
+            throw new ValidationException("Nume incorect!");
+        }
+        if(entity.getGrupa() <= 0) {
             throw new ValidationException("Grupa incorecta!");
         }
         if(entity.getEmail() == null){
@@ -30,6 +39,12 @@ public class StudentValidator implements Validator<Student> {
             throw new ValidationException("Nume incorect!");
         }
         if(entity.getEmail().equals("")){
+            throw new ValidationException("Email incorect!");
+        }
+        if(!entity.getEmail().contains("@")){
+            throw new ValidationException("Email incorect!");
+        }
+        if(!entity.getEmail().contains(".")){
             throw new ValidationException("Email incorect!");
         }
     }
