@@ -32,7 +32,7 @@ public class TestAddStudent {
     public void testAddStudentWithValidGroupNumber() throws ValidationException {
         Student student = new Student("20", "Diana", 935, "diana@gmail.com");
         this.service.addStudent(student);
-        assertEquals(student, this.service.findStudent("20"));
+        assertEquals(student.getGrupa(), this.service.findStudent("20").getGrupa());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class TestAddStudent {
     public void testAddStudentWithValidEmail() throws ValidationException {
         Student student = new Student("21", "Elena", 935, "elena@gmail.com");
         this.service.addStudent(student);
-        assertEquals(student, this.service.findStudent("21"));
+        assertEquals(student.getEmail(), this.service.findStudent("21").getEmail());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class TestAddStudent {
     public void testAddStudentWithValidId() throws ValidationException {
         Student student = new Student("23", "Elena", 935, "elena@gmail.com");
         this.service.addStudent(student);
-        assertEquals(student, this.service.findStudent("23"));
+        assertEquals(student.getID(), this.service.findStudent("23").getID());
     }
 
     @Test
@@ -83,7 +83,7 @@ public class TestAddStudent {
     public void testAddStudentWithValidName() throws ValidationException {
         Student student = new Student("25", "elena", 935, "elena@gmail.com");
         this.service.addStudent(student);
-        assertEquals(student, this.service.findStudent("25") );
+        assertEquals(student.getNume(), this.service.findStudent("25").getNume() );
     }
 
     @Test
