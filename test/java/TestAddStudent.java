@@ -137,7 +137,7 @@ public class TestAddStudent {
     }
 
     @Test
-    public void testAddStudentWithNegativeID() throws ValidationException {
+    public void testAddStudentWithNegativeId() throws ValidationException {
         Student student = new Student("-12", "Diana", 935, "diana@gmail.com");
         try {
             this.service.addStudent(student);
