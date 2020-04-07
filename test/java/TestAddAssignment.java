@@ -91,4 +91,9 @@ public class TestAddAssignment {
             System.out.println(exception.getMessage());
         }
     }
+    @Test
+    public void testAddExistingAssignment() {
+        Tema tema = new Tema("20","descriere", 4,3);
+        assertNotEquals(tema.getDescriere(),this.service.findTema("20").getDescriere());
+    }
 }
