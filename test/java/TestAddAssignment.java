@@ -93,16 +93,6 @@ public class TestAddAssignment {
     }
 
     @Test
-    public void testAddAssignmentWithWithInvalidReceivingWeek() {
-        Tema tema = new Tema("50","tema 1", 5,30);
-        try {
-            this.service.addTema(tema);
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
-
-    @Test
     public void testAddAssignmentWithWitNullEntity() {
         try {
             this.service.addTema(null);
