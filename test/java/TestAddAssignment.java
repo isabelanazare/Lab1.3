@@ -91,13 +91,4 @@ public class TestAddAssignment {
             System.out.println(exception.getMessage());
         }
     }
-
-    @Test
-    public void testAddAssignmentWithWitNullEntity() {
-        try {
-            this.service.addTema(null);
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
 }
