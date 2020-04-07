@@ -136,17 +136,17 @@ public class TestAddStudent {
             System.out.println(exception.getMessage());
         }
     }
-    /*
+
     @Test
     public void testAddStudentWithNegativeId() throws ValidationException {
-        Student student = new Student("-1", "Diana", 935, "diana@gmail.com");
+        Student student = new Student("-12", "Diana", 935, "diana@gmail.com");
         try {
             this.service.addStudent(student);
         } catch (ValidationException exception) {
             System.out.println(exception.getMessage());
         }
     }
-    */
+
     @Test
     public void testAddStudentWithMAXINTId() throws ValidationException {
         Student student = new Student(String.valueOf(Integer.MAX_VALUE), "Diana", 935, "diana@gmail.com");
