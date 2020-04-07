@@ -47,5 +47,8 @@ public class StudentValidator implements Validator<Student> {
         if(!entity.getEmail().contains(".")){
             throw new ValidationException("Email incorect!");
         }
+        if(Integer.parseInt(entity.getID()) <0){
+            throw new ValidationException("Id negativ!");
+        }
     }
 }

@@ -38,7 +38,7 @@ public class TestAddStudent {
 
     @Test
     public void testAddStudentWithInvalidGroupNumber() {
-        Student student = new Student("1", "Diana", 3, "diana@gmail.com");
+        Student student = new Student("60", "Maria", 3, "maria@gmail.com");
         try {
             this.service.addStudent(student);
         } catch (ValidationException exception) {
