@@ -30,10 +30,9 @@ public class TestAddStudent {
 
     @Test
     public void testAddStudentWithValidGroupNumber() throws ValidationException {
-     //   Student student = new Student("50", "Diana", 935, "diana@gmail.com");
-     //   this.service.addStudent(student);
-      //  assertEquals(student.getGrupa(), this.service.findStudent("50").getGrupa());
-        assertEquals("1","1");
+       Student student = new Student("50", "Diana", 935, "diana@gmail.com");
+        this.service.addStudent(student);
+        assertEquals(student.getGrupa(), this.service.findStudent("50").getGrupa());
     }
 
     @Test
