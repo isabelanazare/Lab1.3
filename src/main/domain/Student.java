@@ -89,4 +89,9 @@ public class Student implements HasID<String> {
     public String toString() {
         return idStudent + "," + nume + "," + grupa + "," + email;
     }
+
+    public boolean equals(Object object2) {
+        return object2 instanceof Student && this.email.equals(((Student) object2).email) && this.grupa==((Student) object2).grupa && this.idStudent==((Student) object2).idStudent && this.nume.equals(((Student) object2).nume);
+    }
+
 }

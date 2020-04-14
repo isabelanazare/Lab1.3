@@ -93,4 +93,8 @@ public class Tema implements HasID<String> {
     public String toString() {
         return nrTema + "," + descriere + "," + deadline + "," + primire;
     }
+
+    public boolean equals(Object object2) {
+        return object2 instanceof Tema && this.nrTema == ((Tema) object2).nrTema && this.deadline == ((Tema) object2).deadline && this.getID()==((Tema) object2).getID() && this.primire == ((Tema) object2).primire && this.descriere.equals(((Tema) object2).descriere);
+    }
 }
