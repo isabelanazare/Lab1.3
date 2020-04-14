@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1,Tema numarul 1,2,1
 2,Tema numarul 2,3,2
 3,Tema numarul 3,4,34
@@ -10,3 +11,7 @@
 13,Tema numarul 13,7,6
 14,Nr 14,6,5
 
+=======
+2;tema2;10
+11;tema1;12
+>>>>>>> d0312e6183d8325211f93091407acb89ccea565b
