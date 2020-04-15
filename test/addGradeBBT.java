@@ -7,7 +7,9 @@ import main.validation.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.AbstractMap;
+import java.util.Date;
 import java.util.Map;
 
 public class addGradeBBT {
@@ -32,18 +34,15 @@ public class addGradeBBT {
 
     @Test
     public void testAddGradeWithInvalidValue() throws ValidationException {
-        /*
-        Student student = serviceStudent.find("2");
-        Teme tema = serviceTeme.find(2);
-        Map.Entry<String, Integer> nid = new AbstractMap.SimpleEntry<>("200", 2);
+        LocalDate inputDate = LocalDate.of(2020,10,10);
 
-        Nota nota = new Nota(nid,student,tema, 320, 10);
+        Nota nota = new Nota("100","23","2", 320,inputDate);
         try {
-            this.serviceNote.add(nota,"bad");
+            this.service.addNota(nota,"great");
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
-     */
+
     }
 
 }
