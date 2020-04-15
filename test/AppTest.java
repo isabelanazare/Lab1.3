@@ -29,6 +29,7 @@ public class AppTest {
         this.temaValidator = new TemaValidator();
         this.studentValidator = new StudentValidator();
         this.temaValidator = new TemaValidator();
+        this.notaRepository = new NotaXMLRepo("Note.xml");
         this.temaRepo = new TemaXMLRepo("Teme.xml");
         this.studentRepository = new StudentXMLRepo("Studenti.xml");
         this.notaValidator = new NotaValidator(this.studentRepository, this.temaRepo);
@@ -45,7 +46,7 @@ public class AppTest {
 
     @Test
     public void testAddValidAssignment() throws ValidationException {
-        Tema tema = new Tema("300","tema nr 300", 9,9);
+        Tema tema = new Tema("300","tema nr 300", 14,9);
         this.service.addTema(tema);
         assertEquals(tema.getDescriere(),this.temaRepo.findOne("300").getDescriere());
 
@@ -55,17 +56,17 @@ public class AppTest {
     public void testAddValidGrade() throws ValidationException {
         LocalDate inputDate = LocalDate.of(2020,4,29);
         Nota nota = new Nota("100","23","300", 10,inputDate);
-      //  this.service.addNota(nota,"super");
-      //  assertEquals(nota.getIdStudent(),this.notaRepository.findOne("100").getIdStudent());
+        this.service.addNota(nota,"super");
+       assertEquals(nota.getIdStudent(),this.notaRepository.findOne("100").getIdStudent());
     }
 
     @Test
     public void testAll() throws ValidationException {
        this.testAddValidAssignment();
-       this.testAddValidGrade();
+   //    this.testAddValidGrade();
        this.testAddValidStudent();
-       //assertEquals(studentRepository.size(),3);
-       //assertEquals(this.temaRepo.(),4);
-      // assertEquals(notaRepository.size(),1);
+       assertEquals(studentRepository.size(),10);
+       assertEquals(this.temaRepo.size(),10);
+       assertEquals(notaRepository.size(),1);
     }
 }
