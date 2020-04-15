@@ -46,16 +46,16 @@ public class AppTest {
 
     @Test
     public void testAddValidAssignment() throws ValidationException {
-        Tema tema = new Tema("300","tema nr 300", 14,9);
+        Tema tema = new Tema("400","tema", 14,9);
         this.service.addTema(tema);
-        assertEquals(tema.getDescriere(),this.temaRepo.findOne("300").getDescriere());
+        assertEquals(tema.getDescriere(),this.temaRepo.findOne("400").getDescriere());
 
     }
 
     @Test
     public void testAddValidGrade() throws ValidationException {
-        LocalDate inputDate = LocalDate.of(2020,4,29);
-        Nota nota = new Nota("100","23","300", 10,inputDate);
+        LocalDate inputDate = LocalDate.of(2020,6,13);
+        Nota nota = new Nota("100","23","400", 10,inputDate);
         this.service.addNota(nota,"super");
        assertEquals(nota.getIdStudent(),this.notaRepository.findOne("100").getIdStudent());
     }
@@ -63,10 +63,10 @@ public class AppTest {
     @Test
     public void testAll() throws ValidationException {
        this.testAddValidAssignment();
-   //    this.testAddValidGrade();
+       this.testAddValidGrade();
        this.testAddValidStudent();
        assertEquals(studentRepository.size(),10);
-       assertEquals(this.temaRepo.size(),10);
-       assertEquals(notaRepository.size(),1);
+       assertEquals(this.temaRepo.size(),11);
+       assertEquals(notaRepository.size(),2);
     }
 }

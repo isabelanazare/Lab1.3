@@ -164,7 +164,7 @@ public class Service {
         Student student = studentFileRepository.findOne(nota.getIdStudent());
         Tema tema = temaFileRepository.findOne(nota.getIdTema());
         int predare = calculeazaSPredare(nota.getData());
-        if(predare != tema.getDeadline()){
+        if(predare > tema.getDeadline()){
             if (predare-tema.getDeadline() == 1){
                 nota.setNota(nota.getNota()-2.5);
             }
@@ -173,6 +173,7 @@ public class Service {
             }
         }
         notaFileRepository.save(nota);
+        /*
         String filename = "fisiere/" + student.getNume() + ".txt";
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename, true))){
             bufferedWriter.write("\nTema: " + tema.getID());
@@ -183,7 +184,7 @@ public class Service {
             bufferedWriter.newLine();
         } catch (IOException exception){
             throw new ValidationException(exception.getMessage());
-        }
+        }*/
         return nota.getNota();
     }
 
@@ -244,7 +245,8 @@ public class Service {
      * @return saptamana in care a fost predata tema
      */
     private int calculeazaSPredare(LocalDate predare) {
-        LocalDate startDate = Curent.getStartDate();
+    //    LocalDate startDate = Curent.getStartDate();
+        LocalDate startDate = LocalDate.of(2020,4,15);
         long days = DAYS.between(startDate, predare);
         double saptamanaPredare = Math.ceil((double)days/7);
         return (int)saptamanaPredare;
